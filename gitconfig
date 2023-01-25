@@ -6,3 +6,18 @@
 	helper = osxkeychain
 [core]
 	editor = /usr/bin/vim
+[alias]
+	next = !git checkout `git rev-list HEAD..pres-end | tail -1`
+  cleanup = !git branch -vv | grep ': gone]' | awk '{print $1}' | xargs git branch -D
+  cleanup-remote = !git branch -rvv | grep -v master |  awk '{print $1}' | cut -d "/" -f 2 | xargs git push origin --delete
+  f = fetch -p
+  ba = branch -a
+  co = checkout
+  cob = checkout -b
+  cne = commit --amend --no-edit
+  p = pull
+  s = status
+[help]
+	autocorrect = 1
+[init]
+	defaultBranch = main
